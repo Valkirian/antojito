@@ -1,0 +1,141 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+{% for salchipapa in salchipapas %}
+<center>
+  <h2>{{ salchipapa.name }}</h2>
+  <img
+    class="img-fluid"
+    src="{{ salchipapa.Imagen.url }}"
+    width="400"
+    height="250"
+    alt=""
+  />
+  <p>Disponible: {{ salchipapa.Disponible }}</p>
+  <p>Tamano: {{ salchipapa.Tamano }}</p>
+  <p>Precio: ${{ salchipapa.PrecioU }}</p>
+{% endfor %}
+{% for empanada in empandas %}
+<center>
+  <h2>{{ empanada.name }}</h2>
+  <img
+    class="img-fluid"
+    src="{{ empanada.Imagen.url }}"
+    width="400"
+    height="250"
+    alt=""
+  />
+  <p>Disponible: {{ empanada.Disponible }}</p>
+  <p>Tamano: {{ empanada.Tamano }}</p>
+  <p>Precio: ${{ empanada.PrecioU }}</p>
+</center>
+{% endfor %}
+{% for arepadehuevo in arepasdehuevo %}
+<center>
+  <h2>{{ arepadehuevo.name }}</h2>
+  <img
+    class="img-fluid"
+    src="{{ arepadehuevo.Imagen.url }}"
+    width="400"
+    height="250"
+    alt=""
+  />
+  <p>Disponible: {{ arepadehuevo.Disponible }}</p>
+  <p>Tamano: {{ arepadehuevo.Tamano }}</p>
+  <p>Precio: ${{ arepadehuevo.PrecioU }}</p>
+</center>
+{% endfor %}
+{% for carimanola in carimanolas %}
+<center>
+  <h2>{{ carimanola.name }}</h2>
+  <img
+    class="img-fluid"
+    src="{{ carimanola.Imagen.url }}"
+    width="400"
+    height="250"
+    alt=""
+  />
+  <p>Disponible: {{ carimanola.Disponible }}</p>
+  <p>Tamano: {{ carimanola.Tamano }}</p>
+  <p>Precio: ${{ carimanola.PrecioU }}</p>
+</center>
+{% endfor %}
+{% for bollo in bollos %}
+<center>
+  <h2>{{ bollo.name }}</h2>
+  <img
+    class="img-fluid"
+    src="{{ bollo.Imagen.url }}"
+    width="400"
+    height="250"
+    alt=""
+  />
+  <p>Disponible: {{ bollo.Disponible }}</p>
+  <p>Tamano: {{ bollo.Tamano }}</p>
+  <p>Precio: ${{ bollo.PrecioU }}</p>
+</center>
+{% endfor %}
+
+<center><h3>Tabla de precios por unidad</h3></center>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Arepa de Huevo</th>
+      <th scope="col">Carimanola</th>
+      <th scope="col">Empanada</th>
+      <th scope="col">Salchipapa</th>
+      <th scope="col">Bollo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{% for arepadehuevo in arepasdehuevo %}{{arepadehuevo.PrecioU}}{% endfor %}</td>
+      <td>{% for carimanola in carimanolas %}{{carimanola.PrecioU}}{% endfor %}</td>
+      <td>{% for empanada in empanadas %}{{empanada.PrecioU}}{% endfor %}</td>
+      <td>{% for salchipapa in salchipapas %}{{salchipapa.PrecioU}}{% endfor %}</td>
+      <td>{% for bollo in bollos %}{{bollo.PrecioU}}{% endfor %}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>{% for arepadehuevo in arepasdehuevo %}{{arepadehuevo.PrecioU|add:arepadehuevo.PrecioU}}{% endfor %}</td>
+      <td>{% for carimanola in carimanolas %}{{carimanola.PrecioU|add:carimanola.PrecioU}}{% endfor %}</td>
+      <td>{% for empanada in empanadas %}{{empanada.PrecioU|add:empanada.PrecioU}}{% endfor %}</td>
+      <td>{% for salchipapa in salchipapas %}{{salchipapa.PrecioU|add:salchipapa.PrecioU}}{% endfor %}</td>
+      <td>{% for bollo in bollos %}{{bollo.PrecioU|add:bollo.PrecioU}}{% endfor %}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>{% for arepadehuevo in arepasdehuevo %}{{arepadehuevo.PrecioU|add:arepadehuevo.PrecioU|add:arepadehuevo.PrecioU}}{% endfor %}</td>
+      <td>{% for carimanola in carimanolas %}{{carimanola.PrecioU|add:carimanola.PrecioU|add:carimanola.PrecioU}}{% endfor %}</td>
+      <td>{% for empanada in empanadas %}{{empanada.PrecioU|add:empanada.PrecioU|add:empanada.PrecioU}}{% endfor %}</td>
+      <td>{% for salchipapa in salchipapas %}{{salchipapa.PrecioU|add:salchipapa.PrecioU|add:salchipapa.PrecioU}}{% endfor %}</td>
+      <td>{% for bollo in bollos %}{{bollo.PrecioU|add:bollo.PrecioU|add:bollo.PrecioU}}{% endfor %}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>{% for arepadehuevo in arepasdehuevo %}{{arepadehuevo.PrecioU|add:arepadehuevo.PrecioU|add:arepadehuevo.PrecioU|add:arepadehuevo.PrecioU}}{% endfor %}</td>
+      <td>{% for carimanola in carimanolas %}{{carimanola.PrecioU|add:carimanola.PrecioU|add:carimanola.PrecioU|add:carimanola.PrecioU}}{% endfor %}</td>
+      <td>{% for empanada in empanadas %}{{empanada.PrecioU|add:empanada.PrecioU|add:empanada.PrecioU|add:empanada.PrecioU}}{% endfor %}</td>
+      <td>{% for salchipapa in salchipapas %}{{salchipapa.PrecioU|add:salchipapa.PrecioU|add:salchipapa.PrecioU|add:salchipapa.PrecioU}}{% endfor %}</td>
+      <td>{% for bollo in bollos %}{{bollo.PrecioU|add:bollo.PrecioU|add:bollo.PrecioU|add:bollo.PrecioU}}{% endfor %}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>{% for arepadehuevo in arepasdehuevo %}{{arepadehuevo.PrecioU|add:arepadehuevo.PrecioU|add:arepadehuevo.PrecioU|add:arepadehuevo.PrecioU|add:arepadehuevo.PrecioU}}{% endfor %}</td>
+      <td>{% for carimanola in carimanolas %}{{carimanola.PrecioU|add:carimanola.PrecioU|add:carimanola.PrecioU|add:carimanola.PrecioU|add:carimanola.PrecioU}}{% endfor %}</td>
+      <td>{% for empanada in empanadas %}{{empanada.PrecioU|add:empanada.PrecioU|add:empanada.PrecioU|add:empanada.PrecioU|add:empanada.PrecioU}}{% endfor %}</td>
+      <td>{% for salchipapa in salchipapas %}{{salchipapa.PrecioU|add:salchipapa.PrecioU|add:salchipapa.PrecioU|add:salchipapa.PrecioU|add:salchipapa.PrecioU}}{% endfor %}</td>
+      <td>{% for bollo in bollos %}{{bollo.PrecioU|add:bollo.PrecioU|add:bollo.PrecioU|add:bollo.PrecioU|add:bollo.PrecioU}}{% endfor %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<form method="GET" action={% url 'shop:payment' %}>
+{% csrf_token %}
+<button type="submit" class="btn btn-success">Comprar</button>
+</form>
+{% endblock %}
+
+
+

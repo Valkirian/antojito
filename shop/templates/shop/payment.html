@@ -1,0 +1,21 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<h2>{{ mensaje }}</h2>
+<form method="POST" action="">
+{% csrf_token %}
+<label for="productos">Escoja el producto</label>
+<select id="productos" name="productos">
+  <option value={% for arepadehuevo in arepasdehuevo %}{{arepadehuevo.name}}{% endfor %}>{% for arepadehuevo in arepasdehuevo %}{{arepadehuevo.name}}{% endfor %}</option>
+  <option value={% for carimanola in carimanolas %}{{carimanola.name}}{% endfor %}>{% for carimanola in carimanolas %}{{carimanola.name}}{% endfor %}</option>
+  <option value={% for empanada in empanadas %}{{empanada.name}}{% endfor %}>{% for empanada in empanadas %}{{empanada.name}}{% endfor %}</option>
+  <option value={% for salchipapa in salchipapas %}{{salchipapa.name}}{% endfor %}>{% for salchipapa in salchipapas %}{{salchipapa.name}}{% endfor %}</option>
+  <option value={% for bollo in bollos %}{{bollo.name}}{% endfor %}>{% for bollo in bollos %}{{bollo.name}}{% endfor %}</option>
+</select>
+<input type="number" name="cuenta">
+<input type="submit" value="Crear Pedido">
+</form>
+{% if mensaje == "Pedido creado exitosamente" %}
+  {{ confirm }}
+  <a href="https://api.whatsapp.com/send?phone=+573014723047text=Hola+Alyeth+soy+{{ user.username }}+y+pedi+{{ cantidad }}+unidades+de+{{ producto }}">confirmar pedido</a>
+{% endif %}
+{% endblock %}
